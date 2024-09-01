@@ -6,19 +6,50 @@ import {
   ScrollView,
   Button,
   Pressable,
+  Modal,
+  StatusBar,
+  ActivityIndicator,
+  Alert,
 } from "react-native";
+import { useState } from "react";
 
 const LogoImage = require("./assets/adaptive-icon.png");
 
 export default function App() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
+      <Button title="Alert" onPress={() => Alert.alert("Invalid Ui")} />
+      <Button
+        title="Alert 2"
+        onPress={() => Alert.alert("Invalid Ui", "Incorrect DOB")}
+      />
+      <Button
+        title="Alert 3"
+        onPress={() =>
+          Alert.alert("Invalid Ui", "Incorrect DOB", [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Canceled Pressed"),
+            },
+            {
+              text: "Ok",
+              onPress: () => console.log("Ok Pressed"),
+            },
+          ])
+        }
+      />
+      {/* <ActivityIndicator />
+      <ActivityIndicator size="large" />
+      <ActivityIndicator size="large" color="midnightblue" /> */}
+      {/* <StatusBar backgroundColor="lightgreen" barStyle="dark-content" hidden />
       <Button
         title="Press"
-        onPress={() => console.log("Button Pressed")}
+        onPress={() => setIsModalVisible(true)}
         color="midnightblue"
-      />
-      <ScrollView>
+      /> */}
+      {/* <ScrollView>
         <Pressable onPress={() => console.log("Image Pressed")}>
           <Image source={LogoImage} style={{ width: 300, height: 300 }} />
         </Pressable>
@@ -43,7 +74,26 @@ export default function App() {
         </Pressable>
 
         <Image source={LogoImage} style={{ width: 300, height: 300 }} />
-      </ScrollView>
+      </ScrollView> */}
+
+      {/* <Modal
+        visible={isModalVisible}
+        onRequestClose={() => setIsModalVisible(false)}
+        // animationType="fade"
+        animationType="slide"
+        // presentationStyle="formSheet"
+        presentationStyle="pageSheet"
+      >
+        <View style={{ flex: 1, backgroundColor: "lightblue", padding: 60 }}>
+          <Text>Modal Content</Text>
+
+          <Button
+            title="Close"
+            color="midnightblue"
+            onPress={() => setIsModalVisible(false)}
+          />
+        </View>
+      </Modal> */}
     </View>
   );
 }
