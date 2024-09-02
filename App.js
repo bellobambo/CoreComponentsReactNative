@@ -73,6 +73,7 @@ export default function App() {
           </Text>
         </Pressable>
 
+        
         <Image source={LogoImage} style={{ width: 300, height: 300 }} />
       </ScrollView> */}
 
