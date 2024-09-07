@@ -22,11 +22,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.box, styles.lightBlueBox]}>
-        <Text style={styles.title}>LightBlue Box</Text>
+      <View>
+        <Text style={[styles.darkMode, styles.darkModeText]}>
+          Styles Inheritance
+          <Text style={styles.boldText}>In Bold</Text>
+        </Text>
       </View>
-      <View style={[styles.lightGreenBox, , styles.box]}>
-        <Text style={styles.title}>Lightgreen Box</Text>
+      <View style={[styles.box, styles.lightBlueBox, styles.boxShadow]}>
+        <Text style={{ borderRadius: 5, backgroundColor: "red" }}>
+          LightBlue Box
+        </Text>
+      </View>
+      <View style={[styles.lightGreenBox, , styles.box, styles.andriodShadow]}>
+        <Text style={{}}>Lightgreen Box</Text>
       </View>
     </View>
     // <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
@@ -113,14 +121,29 @@ export default function App() {
 
 const styles = StyleSheet.create({
   box: {
-    width: 100,
-    height: 100,
-    padding: 10,
+    width: 250,
+    height: 250,
+    // padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+    marginVertical: 10,
+    borderWidth: 2,
+    borderColor: "purple",
+    borderRadius: 5,
   },
   container: {
     flex: 1,
     backgroundColor: "plum",
     padding: 60,
+  },
+  darkMode: {
+    backgroundColor: "black",
+  },
+  darkModeText: {
+    color: "white",
+  },
+  boldText: {
+    fontWeight: "bold",
   },
   title: {
     fontSize: 20,
@@ -131,5 +154,17 @@ const styles = StyleSheet.create({
   },
   lightGreenBox: {
     backgroundColor: "lightgreen",
+  },
+  boxShadow: {
+    shadow: "#333333",
+    shadowOffset: {
+      width: 6,
+      height: 6,
+    },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+  },
+  andriodShadow: {
+    elevation: 10,
   },
 });
